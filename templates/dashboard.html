@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes cadastrados</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="janela">
+        <div class="barra-superior">
+            <span class="circulo vermelho"></span>
+            <span class="circulo amarelo"></span>
+            <span class="circulo verde"></span>
+        </div>
+
+        <div class="area-principal">
+            <div class="cabecalho-painel">
+                <div>
+                    <h1 class="titulo">Clientes cadastrados</h1>
+                    <p class="saudacao">Olá, {{ nome }}!</p>
+                </div>
+                <button type="button" id="btn-sair" class="btn-sair">Sair</button>
+            </div>
+
+            <div id="mensagem" class="mensagem" role="alert"></div>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-clientes">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                            <th>Cidade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpo-tabela">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='Js/dashboard.js') }}"></script>
+</body>
+</html>

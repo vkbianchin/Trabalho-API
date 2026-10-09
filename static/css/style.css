@@ -1,0 +1,330 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3f6f9;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3vh 0;
+}
+ 
+.janela {
+    width: 95%;
+    max-width: 1200px;
+    min-height: 94vh;
+    background-color: #ffffff;
+    border: 1px solid #e1e7ec;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+ 
+.barra-superior {
+    height: 48px;
+    background-color: #e9eff5;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 7px;
+    flex-shrink: 0;
+}
+ 
+.circulo {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+}
+ 
+.circulo.vermelho {
+    background-color: #f05b72;
+}
+ 
+.circulo.amarelo {
+    background-color: #f5c542;
+}
+ 
+.circulo.verde {
+    background-color: #35c77a;
+}
+ 
+.area-principal {
+    padding: 30px 38px 45px 38px;
+    text-align: left;
+    flex-grow: 1;
+}
+ 
+.titulo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #102a43;
+    margin-bottom: 24px;
+}
+ 
+.mensagem {
+    min-height: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+ 
+.mensagem.visivel {
+    opacity: 1;
+}
+ 
+.mensagem.sucesso {
+    color: #19b458;
+}
+ 
+.mensagem.erro {
+    color: #e0405a;
+}
+ 
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 28px;
+    row-gap: 18px;
+    margin-bottom: 26px;
+}
+ 
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+ 
+.campo label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #60758a;
+    margin-bottom: 8px;
+}
+ 
+.campo input {
+    height: 43px;
+    width: 100%;
+    background-color: #f9fbfc;
+    border: 2px solid #d5dee6;
+    border-radius: 7px;
+    padding: 0 14px;
+    font-size: 14px;
+    color: #243b53;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+ 
+.campo input:focus {
+    border-color: #9fb3c8;
+}
+ 
+.campo input:disabled {
+    background-color: #eef2f5;
+    color: #9aa7b4;
+    border-color: #e3e9ee;
+    cursor: not-allowed;
+}
+ 
+.acoes {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+}
+ 
+#btn-cadastrar {
+    background-color: #20c463;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    height: 52px;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: background-color 0.2s ease;
+}
+ 
+#btn-cadastrar:hover:not(:disabled) {
+    background-color: #19b458;
+}
+ 
+#btn-cadastrar:disabled {
+    background-color: #8fd9ae;
+    cursor: not-allowed;
+}
+ 
+.tabela-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 2px solid #d8e0e7;
+    border-radius: 8px;
+    background-color: #f9fbfc;
+}
+ 
+.tabela-clientes {
+    width: 100%;
+    border-collapse: collapse;
+}
+ 
+.tabela-clientes thead th {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 700;
+    color: #536b7f;
+    padding: 14px 16px;
+    border-bottom: 2px solid #d8e0e7;
+    white-space: nowrap;
+}
+ 
+.tabela-clientes tbody td {
+    font-size: 14px;
+    color: #243b53;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e6edf2;
+    white-space: nowrap;
+}
+ 
+.tabela-clientes tbody tr:last-child td {
+    border-bottom: none;
+}
+ 
+.tabela-vazia td {
+    text-align: center;
+    color: #93a5b8;
+    font-style: italic;
+    padding: 18px;
+}
+ 
+@media (max-width: 720px) {
+    .janela {
+        width: 100%;
+        border-radius: 10px;
+        min-height: 100vh;
+    }
+ 
+    .area-principal {
+        padding: 22px 18px 30px 18px;
+    }
+ 
+    .titulo {
+        font-size: 26px;
+    }
+ 
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+ 
+    .acoes {
+        justify-content: stretch;
+    }
+ 
+    #btn-cadastrar {
+        width: 100%;
+    }
+}
+ 
+/* ============================================================
+   Login / dashboard / senha no cadastro
+   ============================================================ */
+
+.cabecalho-painel {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.cabecalho-painel .titulo {
+    margin-bottom: 6px;
+}
+
+.saudacao {
+    font-size: 15px;
+    color: #60758a;
+    margin-bottom: 20px;
+}
+
+.btn-sair {
+    background-color: #ffffff;
+    color: #e0405a;
+    border: 2px solid #e0405a;
+    border-radius: 8px;
+    height: 44px;
+    padding: 0 22px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-sair:hover:not(:disabled) {
+    background-color: #e0405a;
+    color: #ffffff;
+}
+
+.btn-sair:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.requisitos {
+    list-style: none;
+    margin-top: 10px;
+    display: grid;
+    gap: 4px;
+}
+
+.requisitos li {
+    font-size: 13px;
+    color: #7b8d9e;
+}
+
+.requisitos li .icone {
+    display: inline-block;
+    width: 18px;
+    font-weight: 700;
+}
+
+.requisitos li.ok {
+    color: #19a152;
+}
+
+.link-alternativo {
+    margin-top: 22px;
+    font-size: 14px;
+    color: #60758a;
+}
+
+.link-alternativo a {
+    color: #1c8f55;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.link-alternativo a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+    .cabecalho-painel {
+        flex-direction: column;
+    }
+
+    .btn-sair {
+        width: 100%;
+        margin-bottom: 16px;
+    }
+}

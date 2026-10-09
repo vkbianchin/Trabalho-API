@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body class="pagina-login">
+    <main class="cartao">
+        <div class="barra-superior" aria-hidden="true">
+            <span class="circulo vermelho"></span>
+            <span class="circulo amarelo"></span>
+            <span class="circulo verde"></span>
+        </div>
+
+        <div class="conteudo">
+            <h1 class="titulo">ENTRAR</h1>
+
+            <div id="mensagem-geral" class="mensagem-geral" role="alert" aria-live="polite"></div>
+
+            <form id="form-login" novalidate>
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email"
+                           placeholder="Digite seu e-mail"
+                           autocomplete="email" inputmode="email" maxlength="150"
+                           required aria-describedby="erro-email" autofocus>
+                    <p id="erro-email" class="erro-campo" role="alert"></p>
+                </div>
+
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha"
+                           placeholder="Digite sua senha"
+                           autocomplete="current-password" maxlength="128"
+                           required aria-describedby="erro-senha requisitos-senha">
+                    <p id="erro-senha" class="erro-campo" role="alert"></p>
+
+                    <ul id="requisitos-senha" class="requisitos" aria-label="Requisitos da senha">
+                        <li data-regra="tamanho"><span class="icone" aria-hidden="true">☐</span> Mínimo de 8 caracteres</li>
+                        <li data-regra="maiuscula"><span class="icone" aria-hidden="true">☐</span> Uma letra maiúscula</li>
+                        <li data-regra="minuscula"><span class="icone" aria-hidden="true">☐</span> Uma letra minúscula</li>
+                        <li data-regra="numero"><span class="icone" aria-hidden="true">☐</span> Um número</li>
+                        <li data-regra="especial"><span class="icone" aria-hidden="true">☐</span> Um caractere especial</li>
+                    </ul>
+                </div>
+
+                <button type="submit" id="btn-entrar" class="btn-entrar" disabled>
+                    <span class="spinner" aria-hidden="true"></span>
+                    <span class="texto-btn">ENTRAR</span>
+                </button>
+            </form>
+
+            <p class="link-alternativo">
+                Não possui uma conta?
+                <a href="{{ url_for('main.cadastro') }}">Cadastre-se</a>
+            </p>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='Js/validacoes.js') }}"></script>
+    <script src="{{ url_for('static', filename='Js/login.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.pagina-login {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3f6f9;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 16px;
+}
+
+.cartao {
+    width: 100%;
+    max-width: 440px;
+    background-color: #ffffff;
+    border: 1px solid #e1e7ec;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(16, 42, 67, 0.08);
+}
+
+.barra-superior {
+    height: 48px;
+    background-color: #e9eff5;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 7px;
+}
+
+.circulo {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.circulo.vermelho { background-color: #f05b72; }
+.circulo.amarelo { background-color: #f5c542; }
+.circulo.verde { background-color: #35c77a; }
+
+.conteudo {
+    padding: 30px 32px 34px 32px;
+}
+
+.titulo {
+    font-size: 34px;
+    font-weight: 700;
+    color: #102a43;
+    text-align: center;
+    margin-bottom: 22px;
+    letter-spacing: 1px;
+}
+
+.mensagem-geral {
+    display: none;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    border-radius: 8px;
+    padding: 11px 14px;
+    margin-bottom: 18px;
+}
+
+.mensagem-geral.visivel { display: block; }
+
+.mensagem-geral.erro {
+    color: #b4233c;
+    background-color: #fdecef;
+    border: 1px solid #f6c3cc;
+}
+
+.mensagem-geral.sucesso {
+    color: #137a3d;
+    background-color: #e8f8ee;
+    border: 1px solid #b9e8cb;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.campo label {
+    font-size: 14px;
+    color: #60758a;
+    margin-bottom: 8px;
+}
+
+.campo input {
+    height: 46px;
+    width: 100%;
+    background-color: #f9fbfc;
+    border: 2px solid #d5dee6;
+    border-radius: 7px;
+    padding: 0 14px;
+    font-size: 15px;
+    color: #243b53;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo input:focus {
+    border-color: #7fa6c9;
+    box-shadow: 0 0 0 3px rgba(127, 166, 201, 0.25);
+}
+
+.campo input.invalido {
+    border-color: #e0405a;
+}
+
+.erro-campo {
+    min-height: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #e0405a;
+    margin-top: 6px;
+}
+
+.erro-campo:empty { display: none; }
+
+.requisitos {
+    list-style: none;
+    margin-top: 12px;
+    display: grid;
+    gap: 5px;
+}
+
+.requisitos li {
+    font-size: 13px;
+    color: #7b8d9e;
+    transition: color 0.2s ease;
+}
+
+.requisitos li .icone {
+    display: inline-block;
+    width: 18px;
+    font-weight: 700;
+}
+
+.requisitos li.ok {
+    color: #19a152;
+}
+
+.btn-entrar {
+    width: 100%;
+    height: 52px;
+    margin-top: 4px;
+    background-color: #20c463;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-entrar:hover:not(:disabled) { background-color: #19b458; }
+
+.btn-entrar:focus-visible {
+    outline: 3px solid rgba(32, 196, 99, 0.45);
+    outline-offset: 2px;
+}
+
+.btn-entrar:disabled {
+    background-color: #c9d3dc;
+    color: #8996a3;
+    cursor: not-allowed;
+}
+
+.btn-entrar.carregando:disabled {
+    background-color: #20c463;
+    color: #ffffff;
+    cursor: progress;
+}
+
+.spinner {
+    display: none;
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.45);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: girar 0.7s linear infinite;
+}
+
+.btn-entrar.carregando .spinner { display: inline-block; }
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}
+
+.link-alternativo {
+    text-align: center;
+    font-size: 14px;
+    color: #60758a;
+    margin-top: 22px;
+}
+
+.link-alternativo a {
+    color: #1c8f55;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.link-alternativo a:hover { text-decoration: underline; }
+
+@media (max-width: 480px) {
+    body.pagina-login {
+        align-items: flex-start;
+        padding: 12px 10px;
+    }
+
+    .conteudo { padding: 24px 18px 28px 18px; }
+    .titulo { font-size: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .spinner { animation-duration: 2s; }
+}
